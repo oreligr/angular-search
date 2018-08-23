@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let tag of tags" (click)="changeTag(tag)">
+      <img src="assets/img/icons/filters/ic-tags-dark-16.svg" alt="">
+      <span>{{ tag.name }}</span>
+    </li>
+  </ul>

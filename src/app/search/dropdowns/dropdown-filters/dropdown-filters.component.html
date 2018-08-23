@@ -1,0 +1,38 @@
+<div class="dropdown-title">
+  Filters
+</div>
+<ul>
+  <li *ngFor="let filter of filters | slice:0:filtersIndex"
+      (click)="changeDropdown(filter)">
+    <img src="{{filter.img}}" alt="">
+    {{ filter.name }}
+  </li>
+  <!-- Показать больше фильтров -->
+  <li class="btn-blue"
+      [ngClass]="{'hidden': !showMoreBool}"
+      (click)="showMore()">
+      <img src="assets/img/icons/ic-arrow-down-dark-16.svg" alt="">
+      Show More
+    </li>
+  <!-- Показать меньше фильтров -->
+  <li class="btn-blue"
+      [ngClass]="{'hidden': showMoreBool}"
+      (click)="showLess()">
+      <img src="assets/img/icons/ic-arrow-up-dark-16.svg" alt="">
+      Show Less
+    </li>
+</ul>
+<!-- Вывод списка Последних поисков -->
+<div class="recent-searchs" *ngIf="recentSearchs.length != 0">
+    <div class="dropdown-title">
+        Recent search
+      </div>
+      <ul>
+        <li *ngFor="let recent of recentSearchs"
+            (click)="changeSearchText(recent)">
+          <img src="assets/img/icons/ic-search-dark-16.svg" alt="">
+          {{ recent }}
+        </li>
+      </ul>
+</div>
+

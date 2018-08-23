@@ -1,0 +1,7 @@
+<ul class="colors">
+  <li
+    *ngFor="let color of colors"
+    [ngStyle]="{'background-color': color.color}"
+    (click)="changeColor(color.color)">
+    </li>
+</ul>

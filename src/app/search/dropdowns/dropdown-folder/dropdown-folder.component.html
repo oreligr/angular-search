@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let folder of folders" (click)="changeFolder(folder)">
+      <img src="assets/img/icons/filters/ic-folder-dark-16.svg" alt="">
+      <span>{{ folder.name }}</span>
+      <span *ngIf="folder.childs" class="child-folders">{{folder.childs.length}} Folders</span>
+    </li>
+  </ul>

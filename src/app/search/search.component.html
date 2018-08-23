@@ -1,0 +1,81 @@
+<div class="search">
+  <!-- Строка поиска -->
+  <input type="text"
+    [(ngModel)]="searchText"
+    (ngModelChange)="onInputChange()"
+    class="search"
+    placeholder="Search"
+    (click)="onSearchClick()"
+    [ngStyle]="{'padding-left.px': paddingLeft}"
+    (keydown)="enterDown($event)"
+    [ngClass]="{'with-delete': selectedDrops.length != 0}"
+    >
+
+  <!-- Список плашек -->
+  <div class="drop-list" id="drop-list">
+    <div class="drop-item"
+        *ngFor="let drop of selectedDrops"
+        (click)="openDrop(drop)"
+        (mouseenter)="calculatePadding()"
+        (mouseleave)="calculatePadding()">
+          <!-- Плашка с выпадающим списком  -->
+          <div class="drop-item--content"
+              *ngIf="drop.dropdown!='colors'">
+                <img src="{{drop.img}}" alt="">
+                <span *ngIf="!drop.value; else dropValueBlock">
+                  {{drop.name}}
+                </span>
+                <ng-template #dropValueBlock>
+                  <span>{{drop.value}}</span>
+                </ng-template>
+          </div>
+          <!-- Плашка с цветами -->
+          <div class="drop-item--content" *ngIf="drop.dropdown==='colors'">
+              <img src="{{drop.img}}" alt="">
+              <span *ngIf="!drop.value; else dropValueBlock">
+                {{drop.name}}
+              </span>
+              <ng-template #dropValueBlock>
+                <div class="drop-item--color"
+                    [ngStyle]="{'background-color': drop.value}">
+                </div>
+              </ng-template>
+          </div>
+      <!-- Кнопка удаления плашки -->
+      <div class="drop-item--delete"  (click)="deleteDrop(drop)"></div>
+    </div>
+  </div>
+  <!-- Кнопка очистки поля поиска -->
+  <div class="search-clear"
+      (click)="onInputClear()"
+      *ngIf="clearActive || selectedDrops.length != 0">
+    </div>
+  <!-- Список дропдаунов -->
+  <div class="dropdown" [hidden]="dropdown==''">
+
+    <app-dropdown-color
+      [hidden]="dropdown!='colors'"
+      (onChangeColor)="onSelectItem($event, dropdown)"
+      ></app-dropdown-color>
+
+    <app-dropdown-filters
+      [hidden]="dropdown!='filters'"
+      (onChangeDropDown)="onChangeDropDown($event)"
+      (onChangeSearchText)="onChangeSearchText($event)"
+      [recentSearchs]="recentSearchArr"
+      ></app-dropdown-filters>
+
+    <app-dropdown-folder
+      [hidden]="dropdown!='folders'"
+      (onChangeFolder)="onSelectItem($event, dropdown)"
+      ></app-dropdown-folder>
+
+    <app-dropdown-tag
+      [hidden]="dropdown!='tags'"
+      (onChangeTag)="onSelectItem($event, dropdown)"
+      ></app-dropdown-tag>
+
+  </div>
+
+</div>
+

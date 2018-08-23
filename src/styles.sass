@@ -1,0 +1,190 @@
+/* You can add global styles to this file, and also import other style files */
+$pinkish-grey: #c8c8c8
+$gray2: #474747
+$white: #e8e8e8
+$white3: #fff
+$turquoise-blue : #00a1b7
+$black: #161616
+$gunmetal: #5c6061
+$cool-grey: #aeb7b8
+
+body
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
+.search
+  position: relative
+  display: inline-block
+  input
+    min-width: 283px
+    border-radius: 16px
+    border: solid 1px #e8e8e8
+    font-size: 13px
+    line-height: 1.38
+    color: $pinkish-grey
+    outline: none
+    padding-left: 16px
+    height: 32px
+    transition: 0.3s
+    caret-color: $turquoise-blue
+    background-image: url(assets/img/icons/ic-search-dark-16.svg)
+    background-position: 95% 50%
+    background-repeat: no-repeat
+    box-sizing: border-box
+    &.with-delete
+      background-image: none
+    &:focus
+      border: solid 1px $gray2
+      color: $black
+      background-image: none
+    &:focus
+      &::-webkit-input-placeholder
+        color: transparent
+        transition: 0.3s
+      &:-moz-placeholder
+        color: transparent
+        transition: 0.3s
+      &::-moz-placeholder
+        color: transparent
+        transition: 0.3s
+      &:-ms-input-placeholder
+        color: transparent
+        transition: 0.3s
+  &-clear
+    right: 15px
+    top: 8px
+    position: absolute
+    width: 14px
+    height: 14px
+    border: solid 1px $gunmetal
+    border-radius: 50%
+    text-align: center
+    cursor: pointer
+    &::before, &::after
+      content: ''
+      display: block
+      position: absolute
+      width: 8px
+      height: 1px
+      left: 0
+      right: 0
+      margin: 0 auto
+      background-color: $gunmetal
+      top: calc(50% - 1px)
+    &::before
+      transform: rotate(45deg)
+    &::after
+      transform: rotate(-45deg)
+
+.dropdown
+  position: absolute
+  top: 50px
+  width: 100%
+  background-color: $white3
+  padding: 12px 16px
+  box-sizing: border-box
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 4px 5px 0 rgba(0, 0, 0, 0.14)
+  &-title
+    font-size: 12px
+    color: $cool-grey
+    margin-bottom: 6px
+  ul
+    margin: 0
+    margin-bottom: 10px
+    padding: 0
+    list-style-type: none
+    li
+      color: $black
+      padding-top: 5px
+      padding-bottom: 5px
+      cursor: pointer
+      display: flex
+      &.hidden
+        display: none
+      img
+        margin-right: 15px
+      &.btn-blue
+        color: $turquoise-blue
+        font-size: 12px
+        margin-top: 5px
+    &.colors
+      display: flex
+      margin-bottom: 0
+      li
+        padding: 0
+        width: 24px
+        height: 24px
+        margin-right: 13px
+        border-radius: 50%
+
+
+.drop
+  &-list
+    position: absolute
+    left: 4px
+    top: 4px
+    display: flex
+  &-item
+    margin-right: 4px
+    border-radius: 12px
+    background-color: rgba(0,161,183,.1)
+    padding-left: 8px
+    padding-right: 12px
+    padding-top: 4px
+    padding-bottom: 4px
+    position: relative
+    cursor: pointer
+    transition: 0.3s
+    &--color
+      width: 16px
+      height: 16px
+      border-radius: 50%
+    &--content
+      display: flex
+      align-items: center
+    img
+      margin-right: 4px
+    span
+      font-size: 13px
+      color: $black
+    &--delete
+      opacity: 0
+      transition: 0.3s
+      width: 22px
+      height: 22px
+      border-radius: 50%
+      background-color: $white3
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.19)
+      position: absolute
+      right: -10px
+      top: -10px
+      background-image: url(assets/img/icons/ic-cross-dark-12.svg)
+      cursor: pointer
+      background-repeat: no-repeat
+      background-position: 50%
+    &::after
+      content: ''
+      position: absolute
+      right: 0
+      top: 10px
+      border: 4px solid transparent
+      border-top: 3px solid $gunmetal
+      transition: 0.3s
+      opacity: 0
+    &:hover
+      background-color: rgba(0,161,183,.24)
+      padding-right: 30px
+      &::after
+        right: 15px
+        opacity: 1
+      .drop-item--delete
+        opacity: 1
+
+.child-folders
+  background-image: url(assets/img/icons/ic-next-16.svg)
+  font-size: 12px
+  color: $cool-grey
+  padding-right: 15px
+  background-repeat: no-repeat
+  background-position: 100% 50%
+  line-height: 18px
+  order: 5
+  margin-left: auto
