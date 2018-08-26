@@ -8,6 +8,7 @@ import { DropdownTagComponent } from './search/dropdowns/dropdown-tag/dropdown-t
 import { DropdownColorComponent } from './search/dropdowns/dropdown-color/dropdown-color.component';
 import { DropdownFiltersComponent } from './search/dropdowns/dropdown-filters/dropdown-filters.component';
 import { FormsModule } from '@angular/forms';
+import { DropdownCreatedComponent } from './search/dropdowns/dropdown-created/dropdown-created.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     DropdownFolderComponent,
     DropdownTagComponent,
     DropdownColorComponent,
-    DropdownFiltersComponent
+    DropdownFiltersComponent,
+    DropdownCreatedComponent
   ],
   imports: [
     BrowserModule,

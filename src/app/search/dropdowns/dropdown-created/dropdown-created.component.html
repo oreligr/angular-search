@@ -1,0 +1,59 @@
+<div class="calendar">
+  <div class="calendar-items">
+    <div class="calendar-item" *ngFor="let month of months; let i = index">
+      <div class="calendar-head">
+        <div *ngIf='i==1'></div>
+        <div *ngIf='i==0' class="btn-changeMonth btn-changeMonth__right"></div>
+        <div class="calendar-head--title">
+          {{month.monthName}} {{month.year}}
+        </div>
+        <div *ngIf='i==0'></div>
+        <div *ngIf='i==1' class="btn-changeMonth btn-changeMonth__left"></div>
+      </div>
+      <div class="calendar-content">
+        <div class="calendar-dayName calendar-row">
+          <div>S</div>
+          <div>M</div>
+          <div>T</div>
+          <div>W</div>
+          <div>T</div>
+          <div>F</div>
+          <div>S</div>
+        </div>
+        <div class="calendar-day calendar-row">
+          <div class="gray"
+            *ngFor="let item of getArrayLastMonth(month.firstDayIndex - 1, month.lastMonthDays)">
+            {{item}}
+          </div>
+          <div *ngFor="let item of getArrayNumbers(month.monthDays)"
+          [ngClass]="{
+            'selected': item === month.selectedDayFrom || item === month.selectedDayTo,
+            'selected-from': item === month.selectedDayFrom,
+            'selected-to': item === month.selectedDayTo,
+            'selected-between': item > month.selectedDayFrom && item < month.selectedDayTo
+          }">
+            <span>{{item}}</span>
+          </div>
+          <div class="gray"
+            *ngFor="let item of getArrayNextMonth(month.firstDayIndex - 1, month.lastMonthDays, month.monthDays)">
+            {{item}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="calendar-tags">
+      <a href="">All time</a>
+      <a href="">Yesterday</a>
+      <a href="">This Week</a>
+      <a href="">Last week</a>
+      <a href="">This month</a>
+      <a href="">Last month</a>
+      <a href="">This year</a>
+      <a href="">Last year</a>
+    </div>
+    <div class="calendar-btns">
+      <a href="" class="btn btn-cancel">Cancel</a>
+      <a href="" class="btn btn-set">Set</a>
+    </div>
+</div>

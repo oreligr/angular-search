@@ -18,7 +18,7 @@ export class DropdownFiltersComponent implements OnInit {
   filters = [
     {name: 'Folder', img: 'assets/img/icons/filters/ic-folder-dark-16.svg', dropdown: 'folders'},
     {name: 'Tag', img: 'assets/img/icons/filters/ic-tags-dark-16.svg', dropdown: 'tags'},
-    {name: 'Created', img: 'assets/img/icons/filters/ic-calendar-dark-16.svg'},
+    {name: 'Created', img: 'assets/img/icons/filters/ic-calendar-dark-16.svg', dropdown: 'celendar'},
     {name: 'File', img: 'assets/img/icons/filters/ic-files-dark-16.svg'},
     {name: 'Todo', img: 'assets/img/icons/filters/ic-todo-rounded-dark-16.svg'},
     {name: 'Encrypted', img: 'assets/img/icons/filters/ic-lock-dark-16.svg'},

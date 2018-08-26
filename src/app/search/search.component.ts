@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
+  styleUrls: ['./search.component.sass'],
   // tslint:disable-next-line:use-host-property-decorator
   host: {
     '(document:click)': 'onClick($event)',
