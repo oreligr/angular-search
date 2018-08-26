@@ -150,4 +150,8 @@ export class SearchComponent implements OnInit {
     }
    }
 
+   onChangeSearchText(text) {
+    this.searchText = text;
+   }
+
 }

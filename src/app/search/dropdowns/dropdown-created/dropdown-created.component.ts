@@ -32,6 +32,7 @@ export class DropdownCreatedComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Создание массива чисел предыдущего месяца
   getArrayLastMonth(num, lastMonthDays) {
     let arr = [];
     let days = lastMonthDays;
@@ -42,14 +43,16 @@ export class DropdownCreatedComponent implements OnInit {
     return arr;
   }
 
+  // Создание массива чисел текущего месяца
   getArrayNumbers(num) {
     let arr = [];
-    for (let g = 1; g < num; g++) {
+    for (let g = 1; g < num + 1; g++) {
       arr.push(g);
     }
     return arr;
   }
 
+  // Создание массива чисел следующего месяца
   getArrayNextMonth(firstDayIndex, lastMonthDays, currentMonthDays) {
     let arr = [];
     let lastMonthDaysNum = this.getArrayLastMonth(firstDayIndex, lastMonthDays).length;
@@ -58,7 +61,7 @@ export class DropdownCreatedComponent implements OnInit {
     let rows = Math.ceil((lastAndCurrentDays) / 7);
     let allDays = rows * 7;
     let nextMonthNum = allDays - lastAndCurrentDays;
-    arr = this.getArrayNumbers(nextMonthNum + 1);
+    arr = this.getArrayNumbers(nextMonthNum);
     return arr;
   }
 

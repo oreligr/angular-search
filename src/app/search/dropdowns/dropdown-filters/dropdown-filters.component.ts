@@ -42,7 +42,7 @@ export class DropdownFiltersComponent implements OnInit {
   }
 
   showMore() {
-    this.filtersIndex += 3;
+    this.filtersIndex += 8;
     if (this.filtersIndex >= this.filters.length) {
       this.filtersIndex = this.filters.length;
       this.showMoreBool = false;
