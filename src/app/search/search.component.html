@@ -1,15 +1,7 @@
-<div class="search">
+<div class="search-wrapper">
+<div class="search" [ngClass]="{'search__focus': focusInput}">
   <!-- Строка поиска -->
-  <input type="text"
-    [(ngModel)]="searchText"
-    (ngModelChange)="onInputChange()"
-    class="search"
-    placeholder="Search"
-    (click)="onSearchClick()"
-    [ngStyle]="{'padding-left.px': paddingLeft}"
-    (keydown)="enterDown($event)"
-    [ngClass]="{'with-delete': selectedDrops.length != 0}"
-    >
+
 
   <!-- Список плашек -->
   <div class="drop-list" id="drop-list">
@@ -45,6 +37,19 @@
       <div class="drop-item--delete"  (click)="deleteDrop(drop)"></div>
     </div>
   </div>
+
+  <input type="text"
+    [(ngModel)]="searchText"
+    (ngModelChange)="onInputChange()"
+    class="search"
+    placeholder="Search"
+    (click)="onSearchClick()"
+    [ngStyle]="{'padding-left.px': paddingLeft}"
+    (keydown)="enterDown($event)"
+    (focus)="focusInput = true"
+    (blur)="focusInput = false"
+    [ngClass]="{'with-delete': selectedDrops.length != 0}"
+    >
   <!-- Кнопка очистки поля поиска -->
   <div class="search-clear"
       (click)="onInputClear()"
@@ -83,3 +88,4 @@
 
 </div>
 
+</div>

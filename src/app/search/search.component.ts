@@ -21,11 +21,11 @@ export class SearchComponent implements OnInit {
 
   changeClose = false; // Переменная чо бы отслеживать возможноть закрыть дропдаун
 
-  paddingLeft = 16; // Переменная отступа для текста в строке поиска
-
   selectedDrops = []; // Список выбранных значений в дропдаунах
 
   recentSearchArr: Array<String> = []; // Массив элементов "Последние поиски"
+
+  focusInput = false; // Отслеживание фокусировки на инпуте
 
   constructor(private _eref: ElementRef) { }
 
@@ -86,7 +86,6 @@ export class SearchComponent implements OnInit {
     this.clearActive = false;
     this.selectedDrops = [];
     this.dropdown = '';
-    this.calculatePadding();
    }
 
   // Включение нужного дропдауна после выбора Фильтрах
@@ -103,7 +102,6 @@ export class SearchComponent implements OnInit {
       this.selectedDrops.push(filter);
      }
     this.changeClose = false;
-    this.calculatePadding();
    }
 
   // Выбор значения в дропдауне
@@ -116,15 +114,6 @@ export class SearchComponent implements OnInit {
     });
     // Закрывает все дропдауны
     this.dropdown = '';
-
-    this.calculatePadding();
-   }
-  // Считает нужный отступ справа в строке поиска
-   calculatePadding() {
-    setTimeout(() => {
-     let elWidth = this._eref.nativeElement.children[0].children[1].offsetWidth;
-     this.paddingLeft = elWidth + 16;
-    }, 10);
    }
 
   // Открывает дропдаун соответствующий нажатой плашке
@@ -135,7 +124,6 @@ export class SearchComponent implements OnInit {
   // Удаляет плашку из строки поиска
    removeDrop(index) {
     this.selectedDrops.splice(index, 1);
-    this.calculatePadding();
    }
   // Нажатие на Enter
   // Если в строке поиска не пусто, добавляет значение в массив Последних поисков

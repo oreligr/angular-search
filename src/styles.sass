@@ -13,29 +13,20 @@ body
 .search
   position: relative
   display: inline-block
-  input
-    min-width: 283px
-    border-radius: 16px
-    border: solid 1px #e8e8e8
-    font-size: 13px
-    line-height: 1.38
-    color: $pinkish-grey
-    outline: none
-    padding-left: 16px
-    height: 32px
-    transition: 0.3s
-    caret-color: $turquoise-blue
-    background-image: url(assets/img/icons/ic-search-dark-16.svg)
-    background-position: 95% 50%
-    background-repeat: no-repeat
-    box-sizing: border-box
-    &.with-delete
-      background-image: none
-    &:focus
-      border: solid 1px $gray2
-      color: $black
-      background-image: none
-    &:focus
+  border: solid 1px #e8e8e8
+  border-radius: 16px
+  display: flex
+  flex-wrap: wrap
+  width: auto
+  padding: 3px
+  height: 34px
+  box-sizing: border-box
+  &__focus
+    border: solid 1px $gray2
+    color: $black
+    background-image: none
+    > input
+      color: transparent
       &::-webkit-input-placeholder
         color: transparent
         transition: 0.3s
@@ -48,6 +39,25 @@ body
       &:-ms-input-placeholder
         color: transparent
         transition: 0.3s
+  &-wrapper
+    display: flex
+  input
+    border: none
+    height: 100%
+    min-width: 283px
+    font-size: 13px
+    line-height: 1.38
+    color: $pinkish-grey
+    outline: none
+    padding-left: 16px
+    transition: 0.3s
+    caret-color: $turquoise-blue
+    background-image: url(assets/img/icons/ic-search-dark-16.svg)
+    background-position: 95% 50%
+    background-repeat: no-repeat
+    box-sizing: border-box
+    &.with-delete
+      background-image: none
   &-clear
     right: 15px
     top: 8px
@@ -118,9 +128,6 @@ body
 
 .drop
   &-list
-    position: absolute
-    left: 4px
-    top: 4px
     display: flex
   &-item
     margin-right: 4px
